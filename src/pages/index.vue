@@ -75,7 +75,9 @@
         <h2>手机</h2>
         <div class="wrapper">
           <div class="banner-left">
-            <a href="/#/product/35"><img v-lazy="'/imgs/mix-alpha.jpg'" alt=""/></a>
+            <a href="/#/product/35"
+              ><img v-lazy="'/imgs/mix-alpha.jpg'" alt=""
+            /></a>
           </div>
           <div class="list-box">
             <div class="list" v-for="(arr, i) in phoneList" v-bind:key="i">
@@ -219,6 +221,7 @@ export default {
       ],
       phoneList: [],
       showModal: false,
+      id:''
     };
   },
   mounted() {
@@ -239,15 +242,18 @@ export default {
         });
     },
     addCart(id) {
-      this.axios
-        .post("/carts", {
-          productId: id,
-          selected: true,
-        })
-        .then((res) => {
-          this.showModal = true;
-          this.$store.dispatch("saveCartCount", res.cartTotalQuantity);
-        });
+      this.showModal = true;
+      this.id = id;
+      // this.axios
+      //   .post("/carts", {
+      //     productId: id,
+      //     selected: true,
+      //   })
+      //   .then((res) => {
+      //     //得先登录
+      //     this.showModal = true;
+      //     this.$store.dispatch("saveCartCount", res.cartTotalQuantity);
+      //   });
     },
     goToCart() {
       this.$router.push("/cart");

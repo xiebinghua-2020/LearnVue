@@ -28,6 +28,7 @@ axios.interceptors.response.use(function(response){
     return res.data;
   }else if(res.status == 10){
     window.location.href = '/#/login';
+    alert('请先登录')
   }else{
     alert(res.msg)
   }
