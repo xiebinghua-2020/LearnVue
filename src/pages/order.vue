@@ -1,20 +1,18 @@
 <template>
-  <div class="order">
-    order
-    <order-header />
-    <router-view />
-    <nav-footer />
+  <div>
+    <router-view></router-view>
+    <service-bar></service-bar>
+    <nav-footer></nav-footer>
   </div>
 </template>
-
 <script>
-import orderHeader from "../components/orderHeader.vue";
-import navFooter from "../components/navFooter.vue";
-export default {
-  name: "order",
-  components: {
-    orderHeader,
-    navFooter,
-  },
-};
+  import ServiceBar from './../components/ServiceBar'
+  import NavFooter from './../components/navFooter'
+  export default{
+    name:'order',
+    components:{
+      ServiceBar,
+      NavFooter
+    }
+  }
 </script>

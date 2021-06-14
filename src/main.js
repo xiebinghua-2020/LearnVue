@@ -4,6 +4,11 @@ import VueAxios from 'vue-axios'
 import VueLazyLoad from 'vue-lazyload'
 import App from './App.vue'
 import router from './router'
+import VueCookie from 'vue-cookie'
+import {
+  Message
+} from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 import store from './store'
 // import env from './env'
 
@@ -34,6 +39,8 @@ axios.interceptors.response.use(function(response){
   }
 });
 
+Vue.use(VueCookie);
+Vue.prototype.$message = Message;
 Vue.use(VueAxios,axios)
 Vue.use(VueLazyLoad,{
   loading:'/imgs/loading-svg/loading-bars.svg'

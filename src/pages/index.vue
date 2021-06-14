@@ -221,7 +221,6 @@ export default {
       ],
       phoneList: [],
       showModal: false,
-      id:''
     };
   },
   mounted() {
@@ -242,18 +241,15 @@ export default {
         });
     },
     addCart(id) {
-      this.showModal = true;
-      this.id = id;
-      // this.axios
-      //   .post("/carts", {
-      //     productId: id,
-      //     selected: true,
-      //   })
-      //   .then((res) => {
-      //     //得先登录
-      //     this.showModal = true;
-      //     this.$store.dispatch("saveCartCount", res.cartTotalQuantity);
-      //   });
+      this.axios
+        .post("/carts", {
+          productId: id,
+          selected: true,
+        })
+        .then((res) => {
+          this.showModal = true;
+          this.$store.dispatch("saveCartCount", res.cartTotalQuantity);
+        });
     },
     goToCart() {
       this.$router.push("/cart");
