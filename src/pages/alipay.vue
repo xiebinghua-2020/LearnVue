@@ -30,7 +30,7 @@
           payType:1 //1支付宝，2微信
         }).then((res)=>{
           this.content = res.content;
-          // 将直接跳转后台传输来的页面
+          // 将直接跳转后台传输来的页面，支付宝支付页面
           // setTimeout(()=>{
           //   document.forms[0].submit();
           // },100)
